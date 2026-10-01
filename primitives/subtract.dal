@@ -1,0 +1,78 @@
+design("subtract")
+type("primitive")
+
+description("Subtracts two numbers and result is saved in world state under result key.")
+
+narrative_structure {
+    # This establishes how this primitive can be used in narratives 
+    # Example: store result of subtract amount from bill in amount_left_to_pay
+    {
+        syntax: "subtract {Subtrahend} from {Minuend}"
+    }
+}
+
+participants {
+    participant(name="subtrahend", required="true")
+    participant(name="minuend", required="true")
+}
+
+behavior subtract {
+    # Get the addends from the world state
+    getFromWorldState(name="subtrahend", role="subtrahend")
+    getFromWorldState(name="minuend", role="minuend")
+
+    # Sum the two values and store result in result
+    _subtract(result, minuend, subtrahend)
+
+    # Update the world state
+    updateWorldState(
+        name="result",
+        value=result,
+        type="number"
+    )
+}
+
+run (subtract)
+
+
+invariants {
+    assert({
+        id:1,
+        participants: ["minuend"],
+        condition: minuend.type == "number",
+        description: "The minuend must be a number",
+        invalidValues: [
+            {
+                value: "string_value"
+                description: "A string is provided to the add primitive"
+            }
+        ]
+    }),
+    assert({
+        id:1,
+        participants: ["subtrahend"],
+        condition: subtrahend.type == "number",
+        description: "The subtrahend must be a number",
+        invalidValues: [
+            {
+                value: "string_value"
+                description: "A string is provided to the add primitive"
+            }
+        ]
+    })
+}
+
+generate{
+    {
+        type: "success",
+        sentence: f"Subtracted {subtrahend} from {minuend} and result is {result}.",
+    },
+    {
+        type: "fail_id_1",
+        sentence: f"Failed to subtract the two numbers because minuend was not a number.",
+    },
+    {
+        type: "fail_id_2",
+        sentence: f"Failed to subtract the two numbers because subtrahend was not a number.",
+    }
+}
