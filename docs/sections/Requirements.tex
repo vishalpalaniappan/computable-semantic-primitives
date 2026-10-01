@@ -13,4 +13,10 @@ So the transformation accepts two participants and generates a partcipant. The t
 
 Using this, the transformation can be invoked by a narrative. So I need to also provide the syntax for how it can be invoked by a narrative. For example, add {addend1} and {addend2} and store result in {result}. The narrative can be parsed and the actual participants can be identified using this.
 
-So now I also set up parsing rules for the transformation. If I see the keyword add, then I know how to parse the rest of the line, so I can use the parser to access the structure from the primitive's meaning
+So now I also set up parsing rules for the transformation. If I see the keyword add, then I know how to parse the rest of the line, so I can use the parser to access the structure from the primitive's meaning.
+
+\subsection{General Rule}
+
+In general, this process is assigning meaning to the primitives of a programming language. It is creating a semantic toolkit that consists of the primitives and using these primitives you can construct more meaning and it is computable. It is the meaning of anything mechanical, so the type of the participant has a specific meaning, float, int, boolean etc. So if the meaning of add is that it must have addends that are a float or an int, then the meaning can be enforced to ensure that the addends have the correct meaning.
+
+Its actually very simple, this is just programming meaning. Its just hard to rewire the mind to think of programming this way because it is not doing anything new but it is just unambiguously constructing the meaning.
