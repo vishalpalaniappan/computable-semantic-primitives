@@ -47,8 +47,9 @@ invariants {
     assert({
         id:1,
         participants: ["addend1"],
-        condition: addend1.type == "number",
-        description: "The addend1 value must be a number",
+        property: ["type"]
+        condition: "float" || "int"
+        description: "Addend1 must be a whole number or float.",
         invalidValues: [
             {
                 value: "string_value"
@@ -57,10 +58,11 @@ invariants {
         ]
     }),
     assert({
-        id:1,
+        id:2,
         participants: ["addend2"],
-        condition: addend2.type == "number",
-        description: "The addend2 value must be a number",
+        property: ["type"]
+        condition: "float" || "int"
+        description: "Addend2 must be a whole number or float.",
         invalidValues: [
             {
                 value: "string_value"
