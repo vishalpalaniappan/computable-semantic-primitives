@@ -16,7 +16,7 @@ participants {
     participant(name="multiplier", required="true")
 }
 
-behavior add {
+behavior multiply {
     # Get the values from the world state
     getFromWorldState(name="multiplicand", role="multiplicand")
     getFromWorldState(name="multiplier", role="multiplier")
@@ -32,7 +32,7 @@ behavior add {
     )
 }
 
-run (add)
+run (multiply)
 
 
 invariants {
