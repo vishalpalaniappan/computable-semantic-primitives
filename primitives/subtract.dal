@@ -16,6 +16,14 @@ participants {
     participant(name="minuend", required="true")
 }
 
+returns {
+    participant(
+        name="result",
+        type="number",
+        description="Result of the subtraction"
+    )
+}
+
 behavior subtract {
     # Get the addends from the world state
     getFromWorldState(name="subtrahend", role="subtrahend")

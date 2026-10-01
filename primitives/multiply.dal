@@ -16,6 +16,14 @@ participants {
     participant(name="multiplier", required="true")
 }
 
+returns {
+    participant(
+        name="result",
+        type="number",
+        description="Result of the multiplication"
+    )
+}
+
 behavior multiply {
     # Get the values from the world state
     getFromWorldState(name="multiplicand", role="multiplicand")

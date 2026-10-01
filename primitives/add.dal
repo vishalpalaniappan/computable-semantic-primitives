@@ -16,6 +16,14 @@ participants {
     participant(name=addend2, required="true")
 }
 
+returns {
+    participant(
+        name="result",
+        type="number",
+        description="Result of the addition"
+    )
+}
+
 behavior add {
     # Get the addends from the world state
     getFromWorldState(name="addend1", role="addend1")
