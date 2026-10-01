@@ -3,20 +3,20 @@ In this section, I just want to explore what the primitives need to be able to d
 Ultimately, the primitive transformations modify the world in a sepcific way. They apply a transformation to the world state. In some cases that is a new participant and in other cases, it an existing participant that is modified. The point here is that the transformations are meaningful, they exist as part of a narrative. 
 
 \subsection{Add}
-So lets start with the basic, the add primitive:
+So lets start with the basic add primitive:
 
 This transformation needs two participants, addend1 and addend2. Both addend1 and addend2 must be numbers, they can be whole numbers, or floats. The resulting participant is a float or an int. So the meaning of the participants correctness is made even more clear and the invariants will be able to enforce the correct meaning.
 
-So it is clear that I also need meaningful primitive types. The meaning of addend1 and addend2 are that they are part of a transformation but also must be of type float or int. So I need to establish that meaning and there is a mechanical sequence that can get its type to ensure that the participant has the correct meaning, the meaning of type is realized by that mechanical sequence.
+So it is clear that I also need meaningful primitive types for the participants. The meaning of addend1 and addend2 are that they are part of a transformation but also must be of type float or int. So I need to establish that meaning and there is a mechanical sequence that can get its type to ensure that the participant has the correct meaning, the meaning of type is realized by that mechanical sequence.
 
-So the transformation accepts two participants and generates a partcipant. The types of all the particiants are known and the invariant is that both addend1 and addend2 have to be numbers. 
+So the transformation accepts two participants and generates a partcipant. The types of all the particiants are known and the invariant is that both addend1 and addend2 have to be of type float or int. This is the meaning of the transformation and the conditions under which it will succeed.
 
-Using this, the transformation can be invoked by a narrative. So I need to also provide the syntax for how it can be invoked by a narrative. For example, add {addend1} and {addend2} and store result in {result}. The narrative can be parsed and the actual participants can be identified using this.
+Using this, the transformation can be invoked by a narrative. So I need to also provide the syntax for how it can be invoked by a narrative. For example, store result of add {addend1} and {addend2} in {result\_name}. The narrative can be parsed and the actual participants can be identified using this.
 
 So now I also set up parsing rules for the transformation. If I see the keyword add, then I know how to parse the rest of the line, so I can use the parser to access the structure from the primitive's meaning.
 
 \subsection{General Rule}
 
-In general, this process is assigning meaning to the primitives of a programming language. It is creating a semantic toolkit that consists of the primitives and using these primitives you can construct more meaning and it is computable. It is the meaning of anything mechanical, so the type of the participant has a specific meaning, float, int, boolean etc. So if the meaning of add is that it must have addends that are a float or an int, then the meaning can be enforced to ensure that the addends have the correct meaning.
+In general, this process is assigning meaning to the primitives of a programming language and transforming programming into an act of constructing meaning. It is creating a semantic toolkit that consists of the meaningful primitives and using these primitives you can construct more meaning and it is computable. It is the meaning of anything mechanical, so the type of the participant has a specific meaning, float, int, boolean etc. So if the meaning of add is that it must have addends that are a float or an int, then the meaning can be enforced to ensure that the addends have the correct meaning.
 
 Its actually very simple, this is just programming meaning. Its just hard to rewire the mind to think of programming this way because it is not doing anything new but it is just unambiguously constructing the meaning.
