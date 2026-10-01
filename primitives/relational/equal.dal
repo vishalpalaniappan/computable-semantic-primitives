@@ -20,7 +20,7 @@ returns {
     participant(
         name="result",
         type="boolean",
-        description="Result of the equality"
+        description="Result of the equality operator."
     )
 }
 
