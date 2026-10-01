@@ -1,0 +1,7 @@
+type("primitive")
+description("Primitive datatype that establishes logical true or false.")
+
+valid_values {
+    value("True")
+    value("False")
+}
