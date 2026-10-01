@@ -1,0 +1,32 @@
+\subsection{Multiplication}
+
+In this section, I want to explore how the add primitive can be used to build multiplication primitive. Multiplication is just repeated addition, so multiplication it is a great case study for how to build more meaning using narratives built from primitives. However, clearly I can establish multiplication on it own as a primitive because its essentially a primitive operator and I'm sure there are optimizations, it is just a very simple case study that shows how meaning can be built on top of primitives.
+
+So despite me establishing multiply as a primitive, if I were to proceed with designing multiplication using repeated addition, I would do it as follows:
+
+\begin{greyquote}
+Multiply {operand1} and {operand2}.
+\end{greyquote}
+
+\begin{greyquote}
+Store 0 in result. Store 0 in counter. While the counter is less than operand2, store result of add operand1 and result in result then store result of 1 and counter in counter.
+\end{greyquote}
+
+It is clear from this that to create the design that realizes this narrative, you need to establish how while will be automatically translated into a design structure. In this case, it is simply a conditional check that counter is less than the operand and apply the subsequent store operations. This can be automatically constructed as a design from the narrative and then an engine can reason about it. Note that I don't specify the invariants in the narrative, since the transformations are built from primitives, the invariants are established through construction.
+
+\subsection{Bill Total Example}
+
+Using the add primitive, you can establish the meaning of behaviors. For example consider the behavior below in a restaurant payment app which is called add bill.
+
+\begin{greyquote}
+    Store 0 in bill-total. For each diner in the group, store the result of add diner-bill and bill-total in bill-total.
+\end{greyquote}
+
+Now in a larger narrative you can use add bill
+
+\begin{greyquote}
+    After the diners request the bill, store the result of add bill in total-owed.
+\end{greyquote}
+
+Since add bill is built from primitives that have unambiguous invariants, the correctness of the narrative can be established. For example if the each diners bill's type is not a number, the engine can reason that the add will fail.
+
