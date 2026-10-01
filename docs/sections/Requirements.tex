@@ -1,0 +1,12 @@
+In this section, I just want to explore what the primitives need to be able to do so that I approach their implemenation in a structured way. 
+
+Ultimately, the primitive transformations modify the world in a sepcific way. They apply a transformation to the world state. In some cases that is a new participant and in other cases, it an existing participant that is modified. The point here is that the transformations are meaningful, they exist as part of a narrative. 
+
+\subsection{Add}
+So lets start with the basic, a transformation add:
+
+This transformation needs two participants, addend1 and addend2. Both addend1 and addend2 must be numbers, they can be whole numbers, or floats, it doesn't matter. In return for this transformation, the result is a number.
+
+So the first thing that is clear here is, I also need meaningful primitive types. The meaning of addend1 and addend2 are that they are part of a transformation but also the are numbers. So I need to establish that meaning and there is a mechanical representation of it that can be used to realize what a number is. 
+
+So the transformation accepts two participants and generates a partcipant. The types of all the particiants are known and the invariant is that both addend1 and addend2 have to be numbers. 
