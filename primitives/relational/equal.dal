@@ -47,6 +47,6 @@ invariants {}
 generate{
     {
         type: "success",
-        sentence: f"Added {addend1} to {addend2} and resulted in {result}.",
+        sentence: f"Applied operand isEqual to {operand1} and {operand2} and result was {result}.",
     }
 }
