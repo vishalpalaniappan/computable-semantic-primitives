@@ -1,0 +1,78 @@
+design("add")
+type("primitive")
+
+description("Adds two numbers and result is saved in world state under result key.")
+
+narrative_structure {
+    # This establishes how this primitive can be used in narratives 
+    # Example: store result of add cost_of_bagel and cost_of_coffee in total_cost
+    {
+        syntax: "add {addend1} and {addend2}"
+    }
+}
+
+participants {
+    participant(name=addend1, required="true")
+    participant(name=addend2, required="true")
+}
+
+behavior add {
+    # Get the addends from the world state
+    getFromWorldState(name="addend1", role="addend1")
+    getFromWorldState(name="addend2", role="addend2")
+
+    # Sum the two values and store result in result
+    _sum(result, addend1, addend2)
+
+    # Update the world state
+    updateWorldState(
+        name="result",
+        value=result,
+        type="number"
+    )
+}
+
+run (add)
+
+
+invariants {
+    assert({
+        id:1,
+        participants: ["addend1"],
+        condition: addend1.type == "number",
+        description: "The addend1 value must be a number",
+        invalidValues: [
+            {
+                value: "string_value"
+                description: "A string is provided to the add primitive"
+            }
+        ]
+    }),
+    assert({
+        id:1,
+        participants: ["addend2"],
+        condition: addend2.type == "number",
+        description: "The addend2 value must be a number",
+        invalidValues: [
+            {
+                value: "string_value"
+                description: "A string is provided to the add primitive"
+            }
+        ]
+    })
+}
+
+generate{
+    {
+        type: "success",
+        sentence: f"Added {addend1} to {addend2} and resulted in {result}.",
+    },
+    {
+        type: "fail_id_1",
+        sentence: f"Failed to add the two numbers because addend1 was not a number.",
+    },
+    {
+        type: "fail_id_2",
+        sentence: f"Failed to add the two numbers because addend2 was not a number.",
+    }
+}
