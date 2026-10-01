@@ -10,3 +10,5 @@ This transformation needs two participants, addend1 and addend2. Both addend1 an
 So the first thing that is clear here is, I also need meaningful primitive types. The meaning of addend1 and addend2 are that they are part of a transformation but also the are numbers. So I need to establish that meaning and there is a mechanical representation of it that can be used to realize what a number is. 
 
 So the transformation accepts two participants and generates a partcipant. The types of all the particiants are known and the invariant is that both addend1 and addend2 have to be numbers. 
+
+Using this, the transformation can be invoked by a narrative. So I need to also provide the syntax for how it can be invoked by a narrative. For example, add {addend1} and {addend2} and store result in {result}. The narrative can be parsed and the actual participants can be identified using this.
