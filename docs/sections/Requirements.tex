@@ -5,10 +5,12 @@ Ultimately, the primitive transformations modify the world in a sepcific way. Th
 \subsection{Add}
 So lets start with the basic, a transformation add:
 
-This transformation needs two participants, addend1 and addend2. Both addend1 and addend2 must be numbers, they can be whole numbers, or floats, it doesn't matter. In return for this transformation, the result is a number.
+This transformation needs two participants, addend1 and addend2. Both addend1 and addend2 must be numbers, they can be whole numbers, or floats. In return for this transformation, the result is a float or a number. So the meaning of the participants is made even more clear and the invariants will be able to enforce the correct meaning.
 
-So the first thing that is clear here is, I also need meaningful primitive types. The meaning of addend1 and addend2 are that they are part of a transformation but also the are numbers. So I need to establish that meaning and there is a mechanical representation of it that can be used to realize what a number is. 
+So it is clear that I also need meaningful primitive types. The meaning of addend1 and addend2 are that they are part of a transformation but also must be of type float or int. So I need to establish that meaning and there is a mechanical sequence that can get its type to ensure that the participant has the correct meaning.
 
 So the transformation accepts two participants and generates a partcipant. The types of all the particiants are known and the invariant is that both addend1 and addend2 have to be numbers. 
 
 Using this, the transformation can be invoked by a narrative. So I need to also provide the syntax for how it can be invoked by a narrative. For example, add {addend1} and {addend2} and store result in {result}. The narrative can be parsed and the actual participants can be identified using this.
+
+So now I also set up parsing rules for the transformation. If I see the keyword add, then I know how to parse the rest of the line, so I can use the parser to access the structure from the primitive's meaning
