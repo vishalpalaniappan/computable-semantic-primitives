@@ -5,7 +5,7 @@ description("Checks if two operands are equal.")
 
 narrative_structure {
     # This establishes how this primitive can be used in narratives 
-    # Example: store result of equal name and "HarryPotter" in book_found
+    # Example: store result of isEqual name and "HarryPotter" in found_book
     {
         syntax: "isEqual {operand1} and {operand2}"
     }
