@@ -13,7 +13,18 @@ Lets consider a bubble sort algorithm. As a quick reminder, a bubble sort algori
     \item Repeat steps 2-7 until entire list is sorted.
 \end{enumerate}
 
-So using this, we can start to define the meaning of this world. We have the following participants:
+So using this, we can establish the design of bubble sort.
+
+\begin{figure}[htbp]
+    \centering
+    \includesvg[
+        width=0.35\linewidth
+    ]{assets/bubble_sort.svg}
+    \caption{Bubble Sort Behaviors}
+    \label{fig:bubble_srt}
+\end{figure}
+
+We have the following participants:
 
 \begin{enumerate}[noitemsep]
     \item Current Position: Current position being inspected.
@@ -21,24 +32,10 @@ So using this, we can start to define the meaning of this world. We have the fol
     \item Unsorted List: List of numbers to be sorted
 \end{enumerate}
 
-We have the following behaviors:
-\begin{enumerate}[noitemsep]
-    \item Initialize Positions
-    \item Initialize left position to 0
-    \item Compare Values at Position
-    \item Swap Values
-    \item Increment Position
-    \item Update Right Position
-\end{enumerate}
-
-I want to use this to now construct the meaning using primitives.
-
-\subsubsection{Initialize Position}
+\subsubsection{InitializeRightPosition}
 
 \begin{greyquote}
     Store the length of the list in size.\\
-    then \\
-    Set leftPosition to 0.\\
     then \\
     Set rightPosition to size.
 \end{greyquote}
@@ -47,6 +44,4 @@ In this case, there are three primitive transformations and added "then" between
 
 So I first get the length of the list and then I store the result in the size participant. This is a primitive because I can establish it using the built in operator. If I wanted to implement it myself, I can implement the meaning of length by building a design that will count the number of elements.
 
-Next, I set the participant leftPosition to 0 and I set rightPosition to the size of the list. Both of these simply use the assign operator and it is a primitive.
-
-Now the meaning of initialize list has been constructed from the primitives.
+Next, I set rightPosition to the size of the list. Both of these simply use the assign operator and it is a primitive.Now the meaning of InitializeRightPosition has been constructed from the primitives.
