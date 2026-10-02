@@ -1,0 +1,25 @@
+In this section, I will be talking about the meaning of participants. The primitive participants have attributes that are established, for example, type. However, as part of the design's meaning, participants can have custom attributes. 
+
+For example, the meaning of a book includes its name and contents. So in the narratives, if I say that the book is assigned a name, then there is a specific attribute of the participant that is being updated. So as part of the narratives I can also specify this.
+
+\begin{greyquote}
+    A book has a name and it has contents. The name is a string and content is a string. The books name can be accessed and assigned.
+\end{greyquote}
+
+I can create ways in which this participant can be interacted with, so when I say, I get the books name, this has unambiguous meaning.
+
+The principle here is that the meaning has to be entirely unambiguous. So the participant has to be fully specified and that meaning has to be realized. So from the perspective of how this meaning is realized, it can be realized as a class with attributes. In the same way that I setup behaviors as methods that are invoked, the participants can be instances of a class that has been consructed from its meaning. The methods assigned to the class are ways in which you can interact with the participant. 
+
+So as part of the narrative construction, I am describing the participants in the narrative, I can specify the necessary information needed to construct the participant. The engine will be able to reason completely, there is meaning assigned to every part of the narrative. 
+
+As I continue building this, it becomes clear that I am simply establishing meaning and using the progamming language to realize that meaning. The primitives are the building blocks that can be used to realize the meaning, I am doing exactly what programming has always been, except now I am defining the meaning of the world unambiguously and then automatically using the programming language to realize that meaning. 
+
+So when I say that add is a primitive, what I mean is that it is a primitive building block of meaning and it remains executable because there is a mechnical realization of that meaning. When you compose more meaning from the primitive building blocks, the composed meaning remains executable. A participant is a unit of meaning in the world, the narratives establish that meaning. The way that meaning is realized is through the mechanical primitives of a class, which has attributes, methods etc. 
+
+This is what I mean when I say this is a very familiar process, what I just described is just what I've always done in programming. I'm just establishing the layer that automatically realizes that established meaning using the programming language. That is why it is automating development, and since there is unambigious meaning, it can be automatically managed by reasoning about that meaning. CLP is what supports that reasoning when reality rejects the designs assumptions and enables the root cause analysis that expands them meaning.
+
+So the steps I need to take can be simplified as follows: 
+
+I need to parse the artha script to construct a CSM using the DAL and then synthesize it. I reason about the meaning using the engine and then refine it. So there is a relationship between all the components. 
+
+It starts with the semantic primitives and then the meaning that can be constructed using them. The primitives themselves are defined using DAL. The CSM is built from the narratives established using Artha, so the meaning constructed by artha has a direct mapping onto a structure and the meaning of the primitives are already written in DAL. Since the primitives are computable, the CSM can be synthesized into an implmentation. The engine is reasoning about the meaning established by artha. It uses the structure of the CSM to be able to do the reasoning. As a result of this, the meaning is automatically developed and the software system is automatically managed.

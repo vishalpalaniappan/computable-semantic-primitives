@@ -1,0 +1,26 @@
+In this section, I just want to explore what the primitives need to be able to do so that I approach their implementation in a structured way. 
+
+Ultimately, the primitive transformations modify the world in a specific way. They apply a transformation to the world state. In some cases that is a new participant and in other cases, it is an existing participant that is modified. The point here is that the transformations are meaningful and they exist as part of a narrative. 
+
+\subsection{Add}
+So lets start with the basic add primitive:
+
+This transformation needs two participants, addend1 and addend2. Both addend1 and addend2 must be numbers, they can be whole numbers, or floats. The resulting participant is a float or an int. So the meaning of the participants correctness is made even more unambiguous and the invariants can be used to predict when this transformation will fail. This allows the engine to reason about the narrative leading up to this transformation and eliminate semantically invalid states.
+
+So it is clear that I also need meaningful primitive types for the participants. The meaning of addend1 and addend2 are that they are part of a transformation but also must be of type float or int. So I need to establish that meaning and there is a mechanical sequence realizes the meaning. If I check if the participants type has the correct meaning, it will invoke the mechanical implementation to access the type.
+
+So the transformation accepts two participants and generates a participant that is the result of the transformation. The types of all the participants are known and the invariant states that both addend1 and addend2 have to be of type float or int. This is the meaning of the transformation and the conditions under which it will succeed.
+
+Using this, the transformation can be invoked by a narrative. So I need to also provide the syntax for how it can be invoked by a narrative. For example, store result of add {addend1} and {addend2} in {result\_name}. The narrative can be parsed and the actual participants can be identified using this.
+
+So now I also set up parsing rules for the transformation. If I see the keyword add, then I know how to parse the rest of the line, so I can use the parser to access the structure from the primitive's meaning.
+
+\subsection{General Rule}
+
+In general, this process is assigning meaning to the primitives of a programming language and transforming programming into an act of automatically constructing the specified meaning. It is creating a semantic toolkit that consists of the meaningful primitives and using those primitives to construct more meaning and then composing more meaning. Since the primitives are computable, the composed meaning remains computable. 
+
+Ultimately, this is the meaning behind the mechanics. So even the type of the participant has a specific meaning, float, int, boolean etc. So if the meaning of add is that it must have addends that are a float or an int, then the correctness can be reasoned about by the engine and semantically invalid states can be eliminated.
+
+Its actually very simple, this is just programming meaning. Its just hard to rewire the mind to think of programming this way because it is not doing anything new but it is just unambiguously constructing the meaning and automtaically realizing that meaning in a programming language.
+
+I actually think the way to become comfortable with this is to think about this as world building. I only say this because the word programming in the traditional sense has a lot of baggage, it evokes images of code sprawling across a screen. Now it is more accurate to think of it as building a world that has meaning and narratives that reason about that meaning. The engine is another form of automated reasoning about that meaning. Through this process, programming is elevated of building deterministic intelligence.
