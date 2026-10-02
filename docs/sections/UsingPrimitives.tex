@@ -13,12 +13,12 @@ Lets consider a bubble sort algorithm. As a quick reminder, a bubble sort algori
     \item Repeat steps 2-7 until entire list is sorted.
 \end{enumerate}
 
-So using this, we can establish the design of bubble sort.
+So using this, we can establish the design of bubble sort. I have not included the actual acceptance of 
 
 \begin{figure}[htbp]
     \centering
     \includesvg[
-        width=0.35\linewidth
+        width=0.99\linewidth
     ]{assets/bubble_sort.svg}
     \caption{Bubble Sort Behaviors and Narratives}
     \label{fig:bubble_srt}
@@ -40,7 +40,7 @@ We have the following participants:
     Set rightPosition to size.
 \end{greyquote}
 
-In this case, there are three primitive transformations and added "then" between the transformations to indicate that they happen in order.
+In this case, there are two primitive transformations and added "then" between the transformations to indicate that they happen in order.
 
 So I first get the length of the list and then I store the result in the size participant. This is a primitive because I can establish it using the built in operator. If I wanted to implement it myself, I can implement the meaning of length by building a design that will count the number of elements.
 
