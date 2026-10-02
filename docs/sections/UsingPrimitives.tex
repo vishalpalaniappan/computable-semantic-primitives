@@ -13,31 +13,44 @@ Lets consider a bubble sort algorithm. As a quick reminder, a bubble sort algori
     \item Repeat steps 2-7 until entire list is sorted.
 \end{enumerate}
 
-So using this, we can establish the design of bubble sort. I have not included the actual acceptance of 
+Now we can establish the design of a bubble sort algorithm and establish the narratives that exist in it. Then I will compose the meaning of bubble sort by establishing the meaning of each part of its narrative.
 
 \begin{figure}[htbp]
     \centering
     \includesvg[
         width=0.99\linewidth
-    ]{assets/bubble_sort.svg}
+    ]{assets/bubble_sort_v2.svg}
     \caption{Bubble Sort Behaviors and Narratives}
     \label{fig:bubble_srt}
 \end{figure}
 
-We have the following participants:
+The narratives of the design can be described as follows:
+\begin{greyquote}
+Accept an unsorted list from the user and initialize the right position to the size of the list.\\
+
+Complete pass to bubble value to right.\\
+
+Decrement right position. \\
+If right position is 0, then list is sorted. \\
+If it is greater than 0, then reset current position and complete another pass.\\
+
+\end{greyquote}
+
+
+At this level, we have the following participants:
 
 \begin{enumerate}[noitemsep]
     \item Current Position: Current position being inspected.
-    \item Right Position: Sorted elements to right of this position.
+    \item Right Position: Elements to the right of this position are sorted.
     \item Unsorted List: List of numbers to be sorted
 \end{enumerate}
 
 \subsubsection{InitializeRightPosition}
 
 \begin{greyquote}
-    Store the length of the list in size.\\
+    Store the length of the list in size\\
     then \\
-    Set rightPosition to size.
+    Set rightPosition to size
 \end{greyquote}
 
 In this case, there are two primitive transformations and added "then" between the transformations to indicate that they happen in order.
@@ -48,7 +61,7 @@ Next, I set rightPosition to the size of the list. Both of these simply use the 
 
 \subsubsection{SetCurrentPositionToStart}
 \begin{greyquote}
-    Set leftPosition to 0.
+    Set leftPosition to 0
 \end{greyquote}
 
 The meaning of this behavior is trivial, it simply sets the participant leftPosition to 0.
@@ -68,3 +81,5 @@ The meaning of this behavior is trivial, it simply sets the participant leftPosi
 \end{greyquote}
 
 In this case, the meaning of the compareValues behavior is built from multiple primitive transformations. First, there is the direct assignment of one value to another participant. Then an add primitive is executed and the result is saved in a participant. Then the value at the left and right position is saved in the relevant participants. Finally a comparison is done to set the value of shouldSwap participant.
+
+So here, we can see two interesting invariants that can be reasoned about. The left and right position are being accessed from the unsortedList and there is an invariant for those primitives that they must be within the size of the list. More to come.
