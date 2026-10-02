@@ -20,7 +20,7 @@ So using this, we can establish the design of bubble sort.
     \includesvg[
         width=0.35\linewidth
     ]{assets/bubble_sort.svg}
-    \caption{Bubble Sort Behaviors}
+    \caption{Bubble Sort Behaviors and Narratives}
     \label{fig:bubble_srt}
 \end{figure}
 
@@ -45,3 +45,26 @@ In this case, there are three primitive transformations and added "then" between
 So I first get the length of the list and then I store the result in the size participant. This is a primitive because I can establish it using the built in operator. If I wanted to implement it myself, I can implement the meaning of length by building a design that will count the number of elements.
 
 Next, I set rightPosition to the size of the list. Both of these simply use the assign operator and it is a primitive.Now the meaning of InitializeRightPosition has been constructed from the primitives.
+
+\subsubsection{SetCurrentPositionToStart}
+\begin{greyquote}
+    Set leftPosition to 0.
+\end{greyquote}
+
+The meaning of this behavior is trivial, it simply sets the participant leftPosition to 0.
+
+\subsubsection{CompareValues}
+
+\begin{greyquote}
+    Set leftPosition to currentPosition\\
+    then\\
+    Store result of add 1 and leftPosition in rightPosition\\
+    then\\
+    Set leftValue to unsortedList value at leftPosition\\
+    then\\
+    Set rightValue to unsortedList value at rightPosition.\\
+    then\\
+    Store result of left position greaterThan rightPosition in shouldSwap
+\end{greyquote}
+
+In this case, the meaning of the compareValues behavior is built from multiple primitive transformations. First, there is the direct assignment of one value to another participant. Then an add primitive is executed and the result is saved in a participant. Then the value at the left and right position is saved in the relevant participants. Finally a comparison is done to set the value of shouldSwap participant.
