@@ -13,6 +13,9 @@ Lets consider a bubble sort algorithm. As a quick reminder, a bubble sort algori
     \item Repeat steps 2-7 until entire list is sorted.
 \end{enumerate}
 
+
+\subsection{Design}
+
 Now we can establish the design of a bubble sort algorithm and establish the narratives that exist in it. Then I will compose the meaning of bubble sort by establishing the meaning of each part of its narrative.
 
 \begin{figure}[htbp]
@@ -26,7 +29,7 @@ Now we can establish the design of a bubble sort algorithm and establish the nar
 
 The narratives of the design can be described as follows:
 \begin{greyquote}
-Accept an unsorted list and initialize the right position.\\
+Accept an unsorted list and initialize the right position and current position.\\
 Complete pass then decrement right position. 
 If right position is 0, then return sorted list \\
 If it is greater than 0, then reset current position and complete another pass.\\
@@ -43,6 +46,7 @@ At this level, we have the following participants:
 
 
 \subsection{AcceptUnsortedList}
+Receive list to sort.
 
 \subsection{InitRightPos}
 
@@ -58,7 +62,7 @@ So I first get the length of the list and then I store the result in the size pa
 
 Next, I set rightPosition to the size of the list. Both of these simply use the assign operator and it is a primitive.Now the meaning of InitializeRightPosition has been constructed from the primitives.
 
-\subsection{ResetCurrentPosition}
+\subsection{InitCurrPosition}
 \begin{greyquote}
     Set leftPosition to 0
 \end{greyquote}
@@ -92,3 +96,15 @@ The meaning of this behavior is trivial, it simply sets the participant leftPosi
 In this case, the meaning of the compareValues behavior is built from multiple primitive transformations. First, there is the direct assignment of one value to another participant. Then an add primitive is executed and the result is saved in a participant. Then the value at the left and right position is saved in the relevant participants. Finally a comparison is done to set the value of shouldSwap participant.
 
 So here, we can see two interesting invariants that can be reasoned about. The left and right position are being accessed from the unsortedList and there is an invariant for those primitives that they must be within the size of the list. 
+
+\subsubsection{SwapValues}
+Swap the values.
+
+\subsubsection{IncCurrPos}
+Increment the current position.
+
+\subsubsection{DecRightPos}
+Decrement the right position.
+
+\subsubsection{ReturnSortedList}
+Return the sorted list.
