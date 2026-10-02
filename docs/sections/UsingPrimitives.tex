@@ -1,3 +1,52 @@
 In the previous section I established a narrative using the add primitive to a bill total example. In this section, I will continue exploring how the primitives can be used compose more meaning and how that meaning can be used to compose more meaning. I am not so focused on being exact with how the narrative will be parsed, I am more interested in exploring how meaning can be composed. I will become more precise with the parsing as I continue with the primitives.
 
-More to come.
+Lets consider a bubble sort algorithm. As a quick reminder, a bubble sort algorithm can be generalized as shown below. The initial participant is an unsorted list and I will list the remaining participants after sharing the sorting steps below.
+
+\begin{enumerate}[noitemsep]
+    \item Initialize right end to size of list.
+    \item Set current position to first element of list. 
+    \item Compare current element to adjacent element to its right.
+    \item Swap if not in order.
+    \item Move onto next pair.
+    \item Repeat steps 3,4 and 5 until right end is reached.
+    \item Decrease right end by one to indicate sorted items.
+    \item Repeat steps 2-7 until entire list is sorted.
+\end{enumerate}
+
+So using this, we can start to define the meaning of this world. We have the following participants:
+
+\begin{enumerate}[noitemsep]
+    \item Current Position: Current position being inspected.
+    \item Right Position: Sorted elements to right of this position.
+    \item Unsorted List: List of numbers to be sorted
+\end{enumerate}
+
+We have the following behaviors:
+\begin{enumerate}[noitemsep]
+    \item Initialize Positions
+    \item Initialize left position to 0
+    \item Compare Values at Position
+    \item Swap Values
+    \item Increment Position
+    \item Update Right Position
+\end{enumerate}
+
+I want to use this to now construct the meaning using primitives.
+
+\subsubsection{Initialize Position}
+
+\begin{greyquote}
+    Store the length of the list in size.\\
+    then \\
+    Set leftPosition to 0.\\
+    then \\
+    Set rightPosition to size.
+\end{greyquote}
+
+In this case, there are three primitive transformations and added "then" between the transformations to indicate that they happen in order.
+
+So I first get the length of the list and then I store the result in the size participant. This is a primitive because I can establish it using the built in operator. If I wanted to implement it myself, I can implement the meaning of length by building a design that will count the number of elements.
+
+Next, I set the participant leftPosition to 0 and I set rightPosition to the size of the list. Both of these simply use the assign operator and it is a primitive.
+
+Now the meaning of initialize list has been constructed from the primitives.
